@@ -1,5 +1,5 @@
 //
-//  CPSafe.h
+//  CPSafeCoreData.h
 //  CPTrace
 //
 //  Created by li xiao on 15-3-26.
@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CPSafeAppDelegate.h"
 
 @interface CPSafeCoreData : NSObject
-
-+(NSMutableArray*) getDataFromEntity:(NSString*)entityName;
-//+(BOOL) insertDataIntoEntity:(NSString*)entityName 
-
 
 @end
