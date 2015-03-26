@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QRCodeReaderViewController.h"
 
 @interface CPSafeViewController : UIViewController
 

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewItem.h"
+//#import "CPSafeCoreData.h"
+#import "CPSafeAppDelegate.h"
+#import "CPSafeWebViewViewController.h"
+#import "QRCodeReaderViewController.h"
 
-@interface CPSafeNewsMain : UITableViewController
-
+@interface CPSafeNewsMain : UITableViewController<UITableViewDelegate,UITableViewDataSource,QRCodeReaderDelegate>{
+    NSMutableArray* newsData;
+    
+}
+@property (nonatomic,retain) NSMutableArray* newsData;
 @end

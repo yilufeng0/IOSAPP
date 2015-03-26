@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CPSafeAppDelegate.h"
+
 
 @interface CPSafeCoreData : NSObject
-
+-(NSMutableArray*)fetchNewSFromEntity:(NSString*)entityName;
 @end

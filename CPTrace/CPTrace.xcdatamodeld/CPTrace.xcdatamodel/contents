@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="NewsItem" representedClassName="NewItem" syncable="YES">
+        <attribute name="newsContentUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDescrip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsShowTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="NewsItem" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
 </model>

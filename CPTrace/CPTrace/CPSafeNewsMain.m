@@ -8,11 +8,20 @@
 
 #import "CPSafeNewsMain.h"
 
+#define NEWSCELLIDENTIFY @"newsCellIdentify"
+#define NEWSENTITYNAME @"NewsItem"
+
 @interface CPSafeNewsMain ()
 
 @end
 
 @implementation CPSafeNewsMain
+
+@synthesize newsData;
+
+-(CPSafeAppDelegate*)appDelegate{
+    return (CPSafeAppDelegate*)[[UIApplication sharedApplication] delegate];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,6 +32,25 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSManagedObjectContext* managementObjectContext=[[self appDelegate] managedObjectContext];
+    NSFetchRequest* request=[[NSFetchRequest alloc] init];
+    NSEntityDescription* entity=[NSEntityDescription entityForName:NEWSENTITYNAME inManagedObjectContext:managementObjectContext];
+    [request setEntity:entity];
+    
+    NSError* error=nil;
+    NSMutableArray* mutableFetchResults=[[managementObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        NSLog(@"read fail");
+    }
+    
+    self.newsData=mutableFetchResults;
+    [self.tableView reloadData];
+    
+//    self.newsData = [NSMutableArray arrayWithObjects:@"tes1",@"test2", nil];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,37 +72,58 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [self.newsData count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NEWSCELLIDENTIFY];
+    UITableViewCell* cell=[self.tableView dequeueReusableCellWithIdentifier:NEWSCELLIDENTIFY forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NEWSCELLIDENTIFY];
+    }
     
-    // Configure the cell...
+    NewItem* newsItem = (NewItem*)[self.newsData objectAtIndex:indexPath.row];
     
-    return cell;
+//    图片根据取出的地址网络获取
+//    cell.imageView.image=newsItem.newsImage;
+    
+    cell.textLabel.text = newsItem.newsTitle;
+    cell.detailTextLabel.text = newsItem.newsShowTime;
+    return  cell;
 }
-*/
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
+    
 }
-*/
+
+
+//点击后的操作
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CPSafeWebViewViewController* webView=[[CPSafeWebViewViewController alloc]init];
+    
+    //取出其中对应的内容URL传递给后端
+    NewItem* newsItem = (NewItem*)[self.newsData objectAtIndex:indexPath.row];
+    
+    //webView.webURL = newsItem.newsContentUrl;
+    webView.webURL = @"http://www.baidu.com";
+    webView.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:webView animated:YES completion:nil];
+    
+}
 
 /*
 // Override to support editing the table view.
@@ -96,14 +145,14 @@
 }
 */
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return NO;
 }
-*/
+
 
 /*
 #pragma mark - Navigation
@@ -115,5 +164,31 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma openQRCodeReaderViewController
+
+-(IBAction)startOpenQRCodeReader:(id)sender{
+    QRCodeReaderViewController* qrcoder = [[QRCodeReaderViewController alloc] init];
+    qrcoder.delegate=self;
+    [self presentViewController:qrcoder animated:YES completion:nil];
+}
+
+#pragma QRCodeReaderViewController delegate
+
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result{
+    
+    //根据扫描得到的结果进行相应界面的跳转
+    NSLog(@"%@",result);
+    
+}
+
+    //cancel按钮点击后的动作
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

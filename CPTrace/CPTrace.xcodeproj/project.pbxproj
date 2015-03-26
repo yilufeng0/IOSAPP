@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AB2CDB51AC3AD7100EF0686 /* CPSafeNewsMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDB41AC3AD7100EF0686 /* CPSafeNewsMain.m */; };
+		5AB2CDB91AC3AF3700EF0686 /* CPSafeCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDB81AC3AF3700EF0686 /* CPSafeCoreData.m */; };
+		5AB2CDC01AC3DC4600EF0686 /* NewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDBF1AC3DC4600EF0686 /* NewItem.m */; };
+		5AB2CDC61AC3E4DA00EF0686 /* CPSafeWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDC41AC3E4DA00EF0686 /* CPSafeWebViewViewController.m */; };
+		5AB2CDC71AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2CDC51AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib */; };
+		5AB2CDD11AC41F9600EF0686 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDCB1AC41F9600EF0686 /* QRCameraSwitchButton.m */; };
+		5AB2CDD21AC41F9600EF0686 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDCE1AC41F9600EF0686 /* QRCodeReaderView.m */; };
+		5AB2CDD31AC41F9600EF0686 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */; };
+		5AB2CDE71AC431F500EF0686 /* CPSafeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */; };
 		5AC4B6561AC3029C0081A8E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6551AC3029C0081A8E6 /* Foundation.framework */; };
 		5AC4B6581AC3029C0081A8E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6571AC3029C0081A8E6 /* CoreGraphics.framework */; };
 		5AC4B65A1AC3029C0081A8E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6591AC3029C0081A8E6 /* UIKit.framework */; };
@@ -36,6 +45,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5AB2CDB31AC3AD7100EF0686 /* CPSafeNewsMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeNewsMain.h; sourceTree = "<group>"; };
+		5AB2CDB41AC3AD7100EF0686 /* CPSafeNewsMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeNewsMain.m; sourceTree = "<group>"; };
+		5AB2CDB71AC3AF3700EF0686 /* CPSafeCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeCoreData.h; sourceTree = "<group>"; };
+		5AB2CDB81AC3AF3700EF0686 /* CPSafeCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeCoreData.m; sourceTree = "<group>"; };
+		5AB2CDBE1AC3DC4600EF0686 /* NewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItem.h; sourceTree = "<group>"; };
+		5AB2CDBF1AC3DC4600EF0686 /* NewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItem.m; sourceTree = "<group>"; };
+		5AB2CDC11AC3DE2C00EF0686 /* CPTrace 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CPTrace 2.xcdatamodel"; sourceTree = "<group>"; };
+		5AB2CDC31AC3E4DA00EF0686 /* CPSafeWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeWebViewViewController.h; sourceTree = "<group>"; };
+		5AB2CDC41AC3E4DA00EF0686 /* CPSafeWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeWebViewViewController.m; sourceTree = "<group>"; };
+		5AB2CDC51AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSafeWebViewViewController.xib; sourceTree = "<group>"; };
+		5AB2CDCA1AC41F9600EF0686 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		5AB2CDCB1AC41F9600EF0686 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		5AB2CDCC1AC41F9600EF0686 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		5AB2CDCD1AC41F9600EF0686 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		5AB2CDCE1AC41F9600EF0686 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		5AB2CDCF1AC41F9600EF0686 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		5AB2CDE51AC431F500EF0686 /* CPSafeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeMap.h; sourceTree = "<group>"; };
+		5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeMap.m; sourceTree = "<group>"; };
 		5AC4B6521AC3029C0081A8E6 /* CPTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC4B6551AC3029C0081A8E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AC4B6571AC3029C0081A8E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +112,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AB2CDB61AC3AEEB00EF0686 /* CoreDataLib */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2CDB71AC3AF3700EF0686 /* CPSafeCoreData.h */,
+				5AB2CDB81AC3AF3700EF0686 /* CPSafeCoreData.m */,
+			);
+			name = CoreDataLib;
+			sourceTree = "<group>";
+		};
+		5AB2CDBA1AC3B42A00EF0686 /* EntitySubclass */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2CDBE1AC3DC4600EF0686 /* NewItem.h */,
+				5AB2CDBF1AC3DC4600EF0686 /* NewItem.m */,
+			);
+			name = EntitySubclass;
+			sourceTree = "<group>";
+		};
+		5AB2CDC21AC3E4B400EF0686 /* NetworkLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NetworkLib;
+			sourceTree = "<group>";
+		};
+		5AB2CDC81AC3F0E200EF0686 /* ViewClass */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2CDC91AC41F9600EF0686 /* QRCodeReaderViewController */,
+				5AB2CDC31AC3E4DA00EF0686 /* CPSafeWebViewViewController.h */,
+				5AB2CDC41AC3E4DA00EF0686 /* CPSafeWebViewViewController.m */,
+				5AB2CDC51AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib */,
+				5AB2CDB31AC3AD7100EF0686 /* CPSafeNewsMain.h */,
+				5AB2CDB41AC3AD7100EF0686 /* CPSafeNewsMain.m */,
+				5AB2CDE51AC431F500EF0686 /* CPSafeMap.h */,
+				5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */,
+			);
+			name = ViewClass;
+			sourceTree = "<group>";
+		};
+		5AB2CDC91AC41F9600EF0686 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2CDCA1AC41F9600EF0686 /* QRCameraSwitchButton.h */,
+				5AB2CDCB1AC41F9600EF0686 /* QRCameraSwitchButton.m */,
+				5AB2CDCC1AC41F9600EF0686 /* QRCodeReaderDelegate.h */,
+				5AB2CDCD1AC41F9600EF0686 /* QRCodeReaderView.h */,
+				5AB2CDCE1AC41F9600EF0686 /* QRCodeReaderView.m */,
+				5AB2CDCF1AC41F9600EF0686 /* QRCodeReaderViewController.h */,
+				5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */,
+			);
+			path = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
 		5AC4B6491AC3029C0081A8E6 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +200,10 @@
 		5AC4B65B1AC3029C0081A8E6 /* CPTrace */ = {
 			isa = PBXGroup;
 			children = (
+				5AB2CDC81AC3F0E200EF0686 /* ViewClass */,
+				5AB2CDC21AC3E4B400EF0686 /* NetworkLib */,
+				5AB2CDBA1AC3B42A00EF0686 /* EntitySubclass */,
+				5AB2CDB61AC3AEEB00EF0686 /* CoreDataLib */,
 				5AC4B6641AC3029C0081A8E6 /* CPSafeAppDelegate.h */,
 				5AC4B6651AC3029C0081A8E6 /* CPSafeAppDelegate.m */,
 				5AC4B6671AC3029C0081A8E6 /* Main.storyboard */,
@@ -238,6 +324,7 @@
 			files = (
 				5AC4B66E1AC3029C0081A8E6 /* Images.xcassets in Resources */,
 				5AC4B6601AC3029C0081A8E6 /* InfoPlist.strings in Resources */,
+				5AB2CDC71AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib in Resources */,
 				5AC4B6691AC3029C0081A8E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,9 +344,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB2CDB91AC3AF3700EF0686 /* CPSafeCoreData.m in Sources */,
+				5AB2CDC01AC3DC4600EF0686 /* NewItem.m in Sources */,
+				5AB2CDE71AC431F500EF0686 /* CPSafeMap.m in Sources */,
+				5AB2CDC61AC3E4DA00EF0686 /* CPSafeWebViewViewController.m in Sources */,
+				5AB2CDB51AC3AD7100EF0686 /* CPSafeNewsMain.m in Sources */,
+				5AB2CDD31AC41F9600EF0686 /* QRCodeReaderViewController.m in Sources */,
 				5AC4B6661AC3029C0081A8E6 /* CPSafeAppDelegate.m in Sources */,
 				5AC4B66C1AC3029C0081A8E6 /* CPSafeViewController.m in Sources */,
 				5AC4B6CF1AC303760081A8E6 /* CPTrace.xcdatamodeld in Sources */,
+				5AB2CDD21AC41F9600EF0686 /* QRCodeReaderView.m in Sources */,
+				5AB2CDD11AC41F9600EF0686 /* QRCameraSwitchButton.m in Sources */,
 				5AC4B6621AC3029C0081A8E6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +560,7 @@
 				5AC4B6861AC3029C0081A8E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AC4B6871AC3029C0081A8E6 /* Build configuration list for PBXNativeTarget "CPTraceTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +569,7 @@
 				5AC4B6891AC3029C0081A8E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -480,6 +577,7 @@
 		5AC4B6CD1AC303760081A8E6 /* CPTrace.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5AB2CDC11AC3DE2C00EF0686 /* CPTrace 2.xcdatamodel */,
 				5AC4B6CE1AC303760081A8E6 /* CPTrace.xcdatamodel */,
 			);
 			currentVersion = 5AC4B6CE1AC303760081A8E6 /* CPTrace.xcdatamodel */;

@@ -15,5 +15,6 @@
 @dynamic newsImage;
 @dynamic newsDescrip;
 @dynamic newsShowTime;
+@dynamic newsContentUrl;
 
 @end
