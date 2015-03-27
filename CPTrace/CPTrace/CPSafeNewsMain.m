@@ -38,8 +38,9 @@
     NSFetchRequest* request=[[NSFetchRequest alloc] init];
     NSEntityDescription* entity=[NSEntityDescription entityForName:NEWSENTITYNAME inManagedObjectContext:managementObjectContext];
     [request setEntity:entity];
-    
+    NSSortDescriptor* sort =[NSSortDescriptor sortDescriptorWithKey:@"idNum" ascending:YES];
     NSError* error=nil;
+    request.sortDescriptors = [NSArray arrayWithObject:sort];
     NSMutableArray* mutableFetchResults=[[managementObjectContext executeFetchRequest:request error:&error] mutableCopy];
     if (mutableFetchResults == nil) {
         NSLog(@"read fail");
@@ -93,13 +94,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NEWSCELLIDENTIFY];
     }
     
-    NewItem* newsItem = (NewItem*)[self.newsData objectAtIndex:indexPath.row];
+    NewsItem* newsItem = (NewsItem*)[self.newsData objectAtIndex:indexPath.row];
     
 //    图片根据取出的地址网络获取
 //    cell.imageView.image=newsItem.newsImage;
     
     cell.textLabel.text = newsItem.newsTitle;
     cell.detailTextLabel.text = newsItem.newsShowTime;
+    NSLog(@"%@",newsItem.newsShowTime);
     return  cell;
 }
 
@@ -116,10 +118,10 @@
     CPSafeWebViewViewController* webView=[[CPSafeWebViewViewController alloc]init];
     
     //取出其中对应的内容URL传递给后端
-    NewItem* newsItem = (NewItem*)[self.newsData objectAtIndex:indexPath.row];
+    NewsItem* newsItem = (NewsItem*)[self.newsData objectAtIndex:indexPath.row];
     
-    //webView.webURL = newsItem.newsContentUrl;
-    webView.webURL = @"http://www.baidu.com";
+    webView.webURL = newsItem.newsContentUrl;
+//    webView.webURL = @"http://www.baidu.com";
     webView.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:webView animated:YES completion:nil];
     

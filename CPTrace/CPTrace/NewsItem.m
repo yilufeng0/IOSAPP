@@ -6,15 +6,16 @@
 //  Copyright (c) 2015年 buptLab618. All rights reserved.
 //
 
-#import "NewItem.h"
+#import "NewsItem.h"
 
 
-@implementation NewItem
+@implementation NewsItem
 
 @dynamic newsTitle;
 @dynamic newsImage;
 @dynamic newsDescrip;
 @dynamic newsShowTime;
 @dynamic newsContentUrl;
+@dynamic idNum;
 
 @end

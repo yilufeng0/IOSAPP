@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewItem.h"
+#import "NewsItem.h"
 //#import "CPSafeCoreData.h"
 #import "CPSafeAppDelegate.h"
 #import "CPSafeWebViewViewController.h"

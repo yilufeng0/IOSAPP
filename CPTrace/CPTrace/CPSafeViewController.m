@@ -7,7 +7,7 @@
 //
 
 #import "CPSafeViewController.h"
-#import "NewItem.h"
+#import "NewsItem.h"
 #import "CPSafeAppDelegate.h"
 
 @interface CPSafeViewController ()
@@ -45,7 +45,8 @@
 -(void)CoreDataInsertData{
     NSError* error=nil;
     NSManagedObjectContext* managedObjectContext=[(CPSafeAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NewItem *news=(NewItem*)[NSEntityDescription insertNewObjectForEntityForName:@"NewsItem" inManagedObjectContext:managedObjectContext];
+    NewsItem *news=(NewsItem*)[NSEntityDescription insertNewObjectForEntityForName:@"NewsItem" inManagedObjectContext:managedObjectContext];
+    news.idNum=[NSNumber numberWithInteger:1];
     news.newsTitle=@"title";
     news.newsShowTime=@"time";
     news.newsImage = @"image";
