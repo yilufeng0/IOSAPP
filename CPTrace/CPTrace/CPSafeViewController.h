@@ -11,4 +11,5 @@
 
 @interface CPSafeViewController : UIViewController
 
+@property(nonatomic,retain) NSMutableArray* data;
 @end

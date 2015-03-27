@@ -16,6 +16,10 @@
 		5AB2CDD21AC41F9600EF0686 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDCE1AC41F9600EF0686 /* QRCodeReaderView.m */; };
 		5AB2CDD31AC41F9600EF0686 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */; };
 		5AB2CDE71AC431F500EF0686 /* CPSafeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */; };
+		5AB2CDEC1AC4F7B100EF0686 /* CPSafeFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDEA1AC4F7B100EF0686 /* CPSafeFeedback.m */; };
+		5AB2CDED1AC4F7B100EF0686 /* CPSafeFeedback.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2CDEB1AC4F7B100EF0686 /* CPSafeFeedback.xib */; };
+		5AB2CDF31AC503A000EF0686 /* CPSafeAboutus.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2CDF11AC503A000EF0686 /* CPSafeAboutus.m */; };
+		5AB2CDF41AC503A000EF0686 /* CPSafeAboutus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2CDF21AC503A000EF0686 /* CPSafeAboutus.xib */; };
 		5AC4B6561AC3029C0081A8E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6551AC3029C0081A8E6 /* Foundation.framework */; };
 		5AC4B6581AC3029C0081A8E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6571AC3029C0081A8E6 /* CoreGraphics.framework */; };
 		5AC4B65A1AC3029C0081A8E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC4B6591AC3029C0081A8E6 /* UIKit.framework */; };
@@ -64,6 +68,12 @@
 		5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
 		5AB2CDE51AC431F500EF0686 /* CPSafeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeMap.h; sourceTree = "<group>"; };
 		5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeMap.m; sourceTree = "<group>"; };
+		5AB2CDE91AC4F7B100EF0686 /* CPSafeFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeFeedback.h; sourceTree = "<group>"; };
+		5AB2CDEA1AC4F7B100EF0686 /* CPSafeFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeFeedback.m; sourceTree = "<group>"; };
+		5AB2CDEB1AC4F7B100EF0686 /* CPSafeFeedback.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSafeFeedback.xib; sourceTree = "<group>"; };
+		5AB2CDF01AC503A000EF0686 /* CPSafeAboutus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeAboutus.h; sourceTree = "<group>"; };
+		5AB2CDF11AC503A000EF0686 /* CPSafeAboutus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeAboutus.m; sourceTree = "<group>"; };
+		5AB2CDF21AC503A000EF0686 /* CPSafeAboutus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSafeAboutus.xib; sourceTree = "<group>"; };
 		5AC4B6521AC3029C0081A8E6 /* CPTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC4B6551AC3029C0081A8E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AC4B6571AC3029C0081A8E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +150,7 @@
 		5AB2CDC81AC3F0E200EF0686 /* ViewClass */ = {
 			isa = PBXGroup;
 			children = (
+				5AB2CDE81AC4ED5E00EF0686 /* SettingGroup */,
 				5AB2CDC91AC41F9600EF0686 /* QRCodeReaderViewController */,
 				5AB2CDC31AC3E4DA00EF0686 /* CPSafeWebViewViewController.h */,
 				5AB2CDC41AC3E4DA00EF0686 /* CPSafeWebViewViewController.m */,
@@ -164,6 +175,19 @@
 				5AB2CDD01AC41F9600EF0686 /* QRCodeReaderViewController.m */,
 			);
 			path = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
+		5AB2CDE81AC4ED5E00EF0686 /* SettingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2CDE91AC4F7B100EF0686 /* CPSafeFeedback.h */,
+				5AB2CDEA1AC4F7B100EF0686 /* CPSafeFeedback.m */,
+				5AB2CDEB1AC4F7B100EF0686 /* CPSafeFeedback.xib */,
+				5AB2CDF01AC503A000EF0686 /* CPSafeAboutus.h */,
+				5AB2CDF11AC503A000EF0686 /* CPSafeAboutus.m */,
+				5AB2CDF21AC503A000EF0686 /* CPSafeAboutus.xib */,
+			);
+			name = SettingGroup;
 			sourceTree = "<group>";
 		};
 		5AC4B6491AC3029C0081A8E6 = {
@@ -322,8 +346,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB2CDED1AC4F7B100EF0686 /* CPSafeFeedback.xib in Resources */,
 				5AC4B66E1AC3029C0081A8E6 /* Images.xcassets in Resources */,
 				5AC4B6601AC3029C0081A8E6 /* InfoPlist.strings in Resources */,
+				5AB2CDF41AC503A000EF0686 /* CPSafeAboutus.xib in Resources */,
 				5AB2CDC71AC3E4DA00EF0686 /* CPSafeWebViewViewController.xib in Resources */,
 				5AC4B6691AC3029C0081A8E6 /* Main.storyboard in Resources */,
 			);
@@ -351,8 +377,10 @@
 				5AB2CDB51AC3AD7100EF0686 /* CPSafeNewsMain.m in Sources */,
 				5AB2CDD31AC41F9600EF0686 /* QRCodeReaderViewController.m in Sources */,
 				5AC4B6661AC3029C0081A8E6 /* CPSafeAppDelegate.m in Sources */,
+				5AB2CDF31AC503A000EF0686 /* CPSafeAboutus.m in Sources */,
 				5AC4B66C1AC3029C0081A8E6 /* CPSafeViewController.m in Sources */,
 				5AC4B6CF1AC303760081A8E6 /* CPTrace.xcdatamodeld in Sources */,
+				5AB2CDEC1AC4F7B100EF0686 /* CPSafeFeedback.m in Sources */,
 				5AB2CDD21AC41F9600EF0686 /* QRCodeReaderView.m in Sources */,
 				5AB2CDD11AC41F9600EF0686 /* QRCameraSwitchButton.m in Sources */,
 				5AC4B6621AC3029C0081A8E6 /* main.m in Sources */,
