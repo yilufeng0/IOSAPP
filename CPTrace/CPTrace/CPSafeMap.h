@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSLocateView.h"
 
-@interface CPSafeMap : UIViewController
+@interface CPSafeMap : UIViewController<UIActionSheetDelegate>
 
 @end
