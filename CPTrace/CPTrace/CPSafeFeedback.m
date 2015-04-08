@@ -7,6 +7,12 @@
 //
 
 #import "CPSafeFeedback.h"
+#import "AFNetworking.h"
+#import "CPSafeAppDelegate.h"
+
+
+#define webInterface @"http://10.108.158.5:8080/cpServerPro/interface.jsp"
+
 
 @interface CPSafeFeedback ()
 @property (weak, nonatomic) IBOutlet UITextField *tfFeedback;
@@ -76,19 +82,43 @@
     
 }
 
+#pragma after submit
+-(void)popViewAlter:(NSString*)message{
+    UIAlertView *alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerAction:) userInfo:alertView repeats:NO];
+    [alertView show];
+}
 
+-(void)timerAction:(NSTimer*)timer{
+    UIAlertView* alterView = (UIAlertView*)[timer userInfo];
+    [alterView dismissWithClickedButtonIndex:0 animated:YES];
+    
+}
 
 #pragma feedback imp
-//提交反馈
+//提交反馈(Done)
 -(IBAction)submitFeedback:(id)sender{
     
-}
-
-//返回
--(IBAction)closeFeedback:(id)sender{
+    NSMutableDictionary* parameter = [NSMutableDictionary new];
+    [parameter setValue:@"feedback" forKey:@"requestType"];
+    [parameter setValue:self.tfFeedback.text forKey:@"content_str"];
+    NSString* deviceToken = [[CPSafeAppDelegate alloc] init].deviceTokenReg;
+    [parameter setValue:deviceToken forKey:@"uuid"];
+    
+    AFHTTPRequestOperationManager* manager=[AFHTTPRequestOperationManager manager];
+    [manager POST:webInterface parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self popViewAlter:@"提交成功!"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self popViewAlter:@"提交失败!"];
+    }];
     
 }
 
+//返回(give up)
+-(IBAction)closeFeedback:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 //

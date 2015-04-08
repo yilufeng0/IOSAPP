@@ -7,18 +7,86 @@
 //
 
 #import "CPSafeAppDelegate.h"
+#import "UMessage.h"
+
+@interface CPSafeAppDelegate()
+
+@end
 
 @implementation CPSafeAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
+@synthesize deviceTokenReg=_deviceTokenReg;
+#pragma mark - UMengNotificationDelegate
+//注册远程通知类型
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    return YES;
+
+        //set AppKey and AppSecret
+        [UMessage startWithAppkey:@"your appkey" launchOptions:launchOptions];
+        
+        //register remoteNotification types
+        
+        //register remoteNotification types (iOS 8.0以下)
+        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
+         |UIRemoteNotificationTypeSound
+         |UIRemoteNotificationTypeAlert];
+        
+        
+        //for log（optional）
+        [UMessage setLogEnabled:NO];
+    
+    
+        return YES;
 }
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [UMessage registerDeviceToken:deviceToken];
+    
+    
+    
+    //获取device token
+    
+    _deviceTokenReg = [NSString stringWithFormat:@"%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                  stringByReplacingOccurrencesOfString: @">" withString: @""]
+                 stringByReplacingOccurrencesOfString: @" " withString: @""]];
+}
+
+//接收到远程通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    //关闭友盟自带的弹出框
+    //    [UMessage setAutoAlert:NO];
+    
+    //应用运行时的消息处理
+    [UMessage didReceiveRemoteNotification:userInfo];
+    
+    //    self.userInfo = userInfo;
+    //    //定制自定的的弹出框
+    //    if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+    //    {
+    //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"标题"
+    //                                                            message:@"Test On ApplicationStateActive"
+    //                                                           delegate:self
+    //                                                  cancelButtonTitle:@"确定"
+    //                                                  otherButtonTitles:nil];
+    //
+    //        [alertView show];
+    //
+    //    }
+}
+
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    [UMessage sendClickReportForRemoteNotification:self.userInfo];
+//}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

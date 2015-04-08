@@ -4,56 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
-        <scene sceneID="Kvo-0F-w2e">
-            <objects>
-                <tableViewController id="KOU-IX-0lf" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VWc-Lb-b3I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="KOU-IX-0lf" id="nAt-pv-Cej"/>
-                            <outlet property="delegate" destination="KOU-IX-0lf" id="K5t-yj-haa"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SrS-BI-aAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="855" y="1479"/>
-        </scene>
-        <!--Safe View Controller - Item-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="CPSafeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc0-wg-C3Z">
-                                <rect key="frame" x="89" y="184" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="InsertIntoCD:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RsP-zv-BFE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="q6K-S1-X4Y"/>
-                    <navigationItem key="navigationItem" id="4l7-L2-4hv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="474" y="1534"/>
-        </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="hRJ-O3-UDq">
             <objects>
@@ -123,12 +73,59 @@
                     <connections>
                         <segue destination="MZ6-1u-ve9" kind="relationship" relationship="viewControllers" id="M02-ux-rGx"/>
                         <segue destination="dRL-HH-6e4" kind="relationship" relationship="viewControllers" id="oMD-aU-Pjf"/>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="hA4-xR-DP3"/>
+                        <segue destination="275-Sp-moJ" kind="relationship" relationship="viewControllers" id="yMz-aY-jsL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXL-MF-qvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="844"/>
+            <point key="canvasLocation" x="86" y="768"/>
+        </scene>
+        <!--Safe Setting - Item-->
+        <scene sceneID="pec-U6-pRI">
+            <objects>
+                <viewController id="275-Sp-moJ" customClass="CPSafeSetting" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KBb-xl-b9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="DPC-3M-KsH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Kf-Yd-ozv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_023.png" translatesAutoresizingMaskIntoConstraints="NO" id="xuC-5l-Slp">
+                                <rect key="frame" x="0.0" y="20" width="320" height="307"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjJ-J9-3Ag">
+                                <rect key="frame" x="40" y="393" width="241" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="关于正大" backgroundImage="bg_023.png">
+                                    <color key="titleColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="aboutUs:" destination="275-Sp-moJ" eventType="touchUpInside" id="DLQ-xF-C0v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQx-71-FzT">
+                                <rect key="frame" x="40" y="451" width="241" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="意见反馈" backgroundImage="bg_023.png">
+                                    <color key="titleColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.29803921570000003" green="0.66274509800000003" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="feedback:" destination="275-Sp-moJ" eventType="touchUpInside" id="gYU-4j-BHY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="0Jp-Ur-U1L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hlZ-Sw-I6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="1748"/>
         </scene>
         <!--Safe Map - Item-->
         <scene sceneID="Ge3-p9-UEP">
@@ -150,6 +147,9 @@
             <point key="canvasLocation" x="856" y="821"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_023.png" width="44" height="44"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -24,9 +24,9 @@
 
 
 //用于完成反馈信息的提交
--(void)uploadInfo:(NSDictionary *)parameters{
+-(void)uploadInfo:(NSDictionary *)parameters withURL:(NSString*)targetUrl{
     AFHTTPRequestOperationManager* manager=[AFHTTPRequestOperationManager manager];
-    [manager POST:webInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:targetUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

@@ -33,6 +33,9 @@
 		5A49CDB91ACC2E6E00111AEC /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A49CDB81ACC2E6E00111AEC /* libstdc++.6.0.9.dylib */; };
 		5A49CDBB1ACC2E7600111AEC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A49CDBA1ACC2E7600111AEC /* Security.framework */; };
 		5A49CDBD1ACC2E8A00111AEC /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5A49CDBC1ACC2E8A00111AEC /* AMap.bundle */; };
+		5A49CDC41ACE756C00111AEC /* CPSafePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A49CDC31ACE756C00111AEC /* CPSafePush.m */; };
+		5A49CDC91ACE80FB00111AEC /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A49CDC71ACE80FB00111AEC /* libUMessage_Sdk_1.1.0.a */; };
+		5A49CDCC1AD4296500111AEC /* CPSafeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A49CDCB1AD4296500111AEC /* CPSafeSetting.m */; };
 		5A9281561AC5578900C5E0F8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9281441AC5578900C5E0F8 /* AFHTTPRequestOperation.m */; };
 		5A9281571AC5578900C5E0F8 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9281461AC5578900C5E0F8 /* AFHTTPRequestOperationManager.m */; };
 		5A9281581AC5578900C5E0F8 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9281481AC5578900C5E0F8 /* AFHTTPSessionManager.m */; };
@@ -113,6 +116,12 @@
 		5A49CDB81ACC2E6E00111AEC /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		5A49CDBA1ACC2E7600111AEC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5A49CDBC1ACC2E8A00111AEC /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = "../../ios-zjd/高德/MAMapKit.framework/Resources/AMap.bundle"; sourceTree = "<group>"; };
+		5A49CDC21ACE756C00111AEC /* CPSafePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafePush.h; sourceTree = "<group>"; };
+		5A49CDC31ACE756C00111AEC /* CPSafePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafePush.m; sourceTree = "<group>"; };
+		5A49CDC71ACE80FB00111AEC /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
+		5A49CDC81ACE80FB00111AEC /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		5A49CDCA1AD4296500111AEC /* CPSafeSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSafeSetting.h; sourceTree = "<group>"; };
+		5A49CDCB1AD4296500111AEC /* CPSafeSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSafeSetting.m; sourceTree = "<group>"; };
 		5A9281431AC5578900C5E0F8 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		5A9281441AC5578900C5E0F8 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		5A9281451AC5578900C5E0F8 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -193,6 +202,7 @@
 				5A49CDB51ACC2E5C00111AEC /* SystemConfiguration.framework in Frameworks */,
 				5A49CDB31ACC2E5400111AEC /* CoreTelephony.framework in Frameworks */,
 				5A49CDB11ACC2E4D00111AEC /* CoreLocation.framework in Frameworks */,
+				5A49CDC91ACE80FB00111AEC /* libUMessage_Sdk_1.1.0.a in Frameworks */,
 				5A49CDAF1ACC2E4200111AEC /* OpenGLES.framework in Frameworks */,
 				5A49CDAD1ACC2E3A00111AEC /* QuartzCore.framework in Frameworks */,
 				5A49CDAB1ACC2E1700111AEC /* MAMapKit.framework in Frameworks */,
@@ -246,6 +256,33 @@
 				5A49CDA31ACC2DE300111AEC /* TSLocation.m */,
 			);
 			name = CityList;
+			sourceTree = "<group>";
+		};
+		5A49CDBE1ACE6DCD00111AEC /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				5A49CDC51ACE80BA00111AEC /* UMengSdk */,
+				5A49CDC21ACE756C00111AEC /* CPSafePush.h */,
+				5A49CDC31ACE756C00111AEC /* CPSafePush.m */,
+			);
+			name = Push;
+			sourceTree = "<group>";
+		};
+		5A49CDC51ACE80BA00111AEC /* UMengSdk */ = {
+			isa = PBXGroup;
+			children = (
+				5A49CDC61ACE80FB00111AEC /* UMessage_Sdk_1.1.0 */,
+			);
+			name = UMengSdk;
+			sourceTree = "<group>";
+		};
+		5A49CDC61ACE80FB00111AEC /* UMessage_Sdk_1.1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5A49CDC71ACE80FB00111AEC /* libUMessage_Sdk_1.1.0.a */,
+				5A49CDC81ACE80FB00111AEC /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.1.0;
 			sourceTree = "<group>";
 		};
 		5A9281421AC5578900C5E0F8 /* AFNetworking */ = {
@@ -314,6 +351,8 @@
 				5AB2CDB41AC3AD7100EF0686 /* CPSafeNewsMain.m */,
 				5AB2CDE51AC431F500EF0686 /* CPSafeMap.h */,
 				5AB2CDE61AC431F500EF0686 /* CPSafeMap.m */,
+				5A49CDCA1AD4296500111AEC /* CPSafeSetting.h */,
+				5A49CDCB1AD4296500111AEC /* CPSafeSetting.m */,
 			);
 			name = ViewClass;
 			sourceTree = "<group>";
@@ -390,6 +429,7 @@
 		5AC4B65B1AC3029C0081A8E6 /* CPTrace */ = {
 			isa = PBXGroup;
 			children = (
+				5A49CDBE1ACE6DCD00111AEC /* Push */,
 				5A49CD9D1ACC2D6100111AEC /* CityList */,
 				5A49CD861ACC2CF100111AEC /* Resources */,
 				5AB2CDC81AC3F0E200EF0686 /* ViewClass */,
@@ -558,7 +598,9 @@
 				5AB2CDC61AC3E4DA00EF0686 /* CPSafeWebViewViewController.m in Sources */,
 				5A92815D1AC5578900C5E0F8 /* AFURLResponseSerialization.m in Sources */,
 				5A92815B1AC5578900C5E0F8 /* AFURLConnectionOperation.m in Sources */,
+				5A49CDCC1AD4296500111AEC /* CPSafeSetting.m in Sources */,
 				5A49CDA51ACC2DE300111AEC /* TSLocateView.m in Sources */,
+				5A49CDC41ACE756C00111AEC /* CPSafePush.m in Sources */,
 				5AB2CDB51AC3AD7100EF0686 /* CPSafeNewsMain.m in Sources */,
 				5A9281641AC5602F00C5E0F8 /* CPSafeNetWorkOp.m in Sources */,
 				5A49CDA71ACC2DE300111AEC /* TSLocation.m in Sources */,
@@ -643,7 +685,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -661,6 +704,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "34631c27-a962-46c3-ba55-d5bedb374660";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -681,7 +725,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -692,6 +737,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "34631c27-a962-46c3-ba55-d5bedb374660";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -702,6 +748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/dev1/Desktop/ios-zjd/高德",
@@ -709,7 +756,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPTrace/CPTrace-Prefix.pch";
 				INFOPLIST_FILE = "CPTrace/CPTrace-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CPTrace/UMessage_Sdk_1.1.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "34631c27-a962-46c3-ba55-d5bedb374660";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -719,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pan Kun (2D3T9Y8RYF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/dev1/Desktop/ios-zjd/高德",
@@ -726,7 +779,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPTrace/CPTrace-Prefix.pch";
 				INFOPLIST_FILE = "CPTrace/CPTrace-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CPTrace/UMessage_Sdk_1.1.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "34631c27-a962-46c3-ba55-d5bedb374660";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

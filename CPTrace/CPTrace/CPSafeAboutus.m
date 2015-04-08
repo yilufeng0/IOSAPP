@@ -35,6 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)exitAboutUs:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma aboutUs imp
 

@@ -10,6 +10,6 @@
 #import "AFNetworking.h"
 
 @interface CPSafeNetWorkOp : NSObject
--(void)uploadInfo:(NSDictionary*)parameters;
+-(void)uploadInfo:(NSDictionary*)parameters withURL:(NSString*)targetUrl;
 -(void)getNewsItem:(NSDictionary*)parameters;
 @end
