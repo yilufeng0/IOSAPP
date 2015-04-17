@@ -10,24 +10,26 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <QuartzCore/QuartzCore.h>
-#define APIKey      @"24f9ba191974101835e67ea0b616a212"
+#define APIKey      @"5edf396e3b9ed4b4687e28787c1bd1cb"
 
 @interface CPSafeMap ()<MAMapViewDelegate,AMapSearchDelegate>
 {
     MAMapView *_mapView;
     UIButton *_locationButton;
     AMapSearchAPI *_search;
-    CLLocation *_currentLocation;
+   // CLLocation *_currentLocation;
     UILabel *_label;
-    
     NSArray *_pois;
     NSMutableArray *_annotations;
     int tag;
+    bool tag_2;
 }
 
 @end
 
 @implementation CPSafeMap
+
+@synthesize currentLocation = _currentLocation;
 
 
 #pragma mark - Init
@@ -135,15 +137,21 @@
 {
     // NSLog(@"tag :%i",tag);
     NSLog(@"userLocation: %@", userLocation.location);
-    _currentLocation = [userLocation.location copy];
-    
-    if(tag == 0)
+    self.currentLocation = [userLocation.location copy];
+ 
+    if(tag == 0 && tag_2)
     {
         _mapView.centerCoordinate = CLLocationCoordinate2DMake(_currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
-        [self searchAction];
+        
+            [self searchAction];
+            tag_2 = false;
+        
+        
     }
     
 }
+
+
 
 
 
@@ -155,7 +163,8 @@
     {
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
     }
-    
+    tag = 0;
+    tag_2 = true;
     
 }
 
@@ -239,6 +248,12 @@
         [self reGeoAction];
         
     }
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    tag_2 = true;
+    tag=0;
     
 }
 
@@ -330,6 +345,7 @@
     if(buttonIndex == 0) {
         NSLog(@"Cancel");
         tag = 1;
+        tag_2 = true;
         //  [self searchAction];
         
     }else {
@@ -352,6 +368,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    tag_2 = true;
 	// Do any additional setup after loading the view, typically from a nib.
     [self initMapView];
     [self initControls];
@@ -366,10 +383,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
 
 
 @end

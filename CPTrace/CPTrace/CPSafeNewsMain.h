@@ -12,10 +12,18 @@
 #import "CPSafeAppDelegate.h"
 #import "CPSafeWebViewViewController.h"
 #import "QRCodeReaderViewController.h"
-
-@interface CPSafeNewsMain : UITableViewController<UITableViewDelegate,UITableViewDataSource,QRCodeReaderDelegate>{
+#import "EGORefreshTableHeaderView.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+@interface CPSafeNewsMain : UITableViewController<UITableViewDelegate,UITableViewDataSource,QRCodeReaderDelegate,EGORefreshTableHeaderDelegate>{
     NSMutableArray* newsData;
+    EGORefreshTableHeaderView* _refreshHeaderView;
+    BOOL _reloading;
     
 }
 @property (nonatomic,retain) NSMutableArray* newsData;
+@property (strong,nonatomic,retain) NSMutableDictionary* muuserInfo;
+
+
+-(void)reloadTableViewDataSource;
+-(void)doneLoadingTableViewData;
 @end

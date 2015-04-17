@@ -56,6 +56,17 @@
 {
     [super viewDidLoad];
     
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f-self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+        
+    }
+    
+    
+    [_refreshHeaderView refreshLastUpdatedDate];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -98,7 +109,7 @@
     
 //    图片根据取出的地址网络获取
 //    cell.imageView.image=newsItem.newsImage;
-    
+    [cell.imageView setImageWithURL:[NSURL URLWithString:newsItem.newsImage] placeholderImage:@"placeholder.png"];
     cell.textLabel.text = newsItem.newsTitle;
     cell.detailTextLabel.text = newsItem.newsShowTime;
     NSLog(@"%@",newsItem.newsShowTime);
@@ -192,5 +203,39 @@
 }
 
 
+#pragma UIScrollViewDelegateMethods
+
+-(void)reloadTableViewDataSource{
+    _reloading = YES;
+}
+
+-(void)doneLoadingTableViewData{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+
+#pragma UIScrollViewDelegateMethods
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma EGORefreshTableHeaderDelegate Methods
+-(void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+}
+
+-(BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view{
+    return _reloading;
+}
+
+-(NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view{
+    return [NSDate date];
+}
 
 @end

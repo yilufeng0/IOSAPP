@@ -8,9 +8,10 @@
 
 #import "CPSafeAppDelegate.h"
 #import "UMessage.h"
+#import "CPSafeWebViewViewController.h"
 
 @interface CPSafeAppDelegate()
-
+@property (strong,nonatomic,retain) NSMutableDictionary* muuserInfo;
 @end
 
 @implementation CPSafeAppDelegate
@@ -19,27 +20,30 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize deviceTokenReg=_deviceTokenReg;
+@synthesize muuserInfo;
 #pragma mark - UMengNotificationDelegate
 //注册远程通知类型
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
+//    NSLog(@"start info,%@",launchOptions);
         //set AppKey and AppSecret
-        [UMessage startWithAppkey:@"your appkey" launchOptions:launchOptions];
+        [UMessage startWithAppkey:@"552646a2fd98c521000018c7" launchOptions:launchOptions];
         
         //register remoteNotification types
         
         //register remoteNotification types (iOS 8.0以下)
         [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
-         |UIRemoteNotificationTypeSound
+                                                    |UIRemoteNotificationTypeSound
+         
          |UIRemoteNotificationTypeAlert];
         
         
         //for log（optional）
-        [UMessage setLogEnabled:NO];
+        [UMessage setLogEnabled:YES];
     
-    
+   // NSLog(@"lauchOptions:%@",launchOptions);
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
         return YES;
 }
 
@@ -55,36 +59,47 @@
     _deviceTokenReg = [NSString stringWithFormat:@"%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                   stringByReplacingOccurrencesOfString: @">" withString: @""]
                  stringByReplacingOccurrencesOfString: @" " withString: @""]];
+    NSLog(@"%@",_deviceTokenReg);
 }
 
 //接收到远程通知
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     //关闭友盟自带的弹出框
-    //    [UMessage setAutoAlert:NO];
+    [UMessage setAutoAlert:NO];
     
     //应用运行时的消息处理
     [UMessage didReceiveRemoteNotification:userInfo];
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//    NSLog(@"%@",[userInfo objectForKey:@"desturl"]);
+//     NSLog(@"userInfo%@",userInfo);
+//    [self.muuserInfo setDictionary:[userInfo copy]];
+//    [self.muuserInfo setObject:[userInfo objectForKey:@"targetUrl"] forKey:@"targetUrl"];
+//    NSLog(@"muuserinfo%@",self.muuserInfo);
+        //定制自定的的弹出框
+//        if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:[userInfo objectForKey:@"alert"]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"取消"
+                                                      otherButtonTitles:@"确定",nil];
     
-    //    self.userInfo = userInfo;
-    //    //定制自定的的弹出框
-    //    if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-    //    {
-    //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"标题"
-    //                                                            message:@"Test On ApplicationStateActive"
-    //                                                           delegate:self
-    //                                                  cancelButtonTitle:@"确定"
-    //                                                  otherButtonTitles:nil];
-    //
-    //        [alertView show];
-    //
-    //    }
+            [alertView show];
+    
+        }
 }
 
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    [UMessage sendClickReportForRemoteNotification:self.userInfo];
-//}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSLog(@"%@",self.muuserInfo);
+        NSLog(@"%@",[self.muuserInfo objectForKey:@"targetUrl"]);
+        CPSafeWebViewViewController* targetUrl = [CPSafeWebViewViewController new];
+        targetUrl.webURL = [self.muuserInfo objectForKey:@"targetUrl"];
+        [self.window.rootViewController presentViewController:targetUrl animated:YES completion:nil];
+
+    }}
 
 
 							
@@ -108,6 +123,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+   
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
