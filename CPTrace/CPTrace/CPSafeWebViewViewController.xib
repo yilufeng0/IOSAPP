@@ -20,12 +20,12 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <navigationItem title="News" id="lzV-FW-4H1">
-                            <barButtonItem key="leftBarButtonItem" title="back" id="fF6-o4-blF">
+                            <barButtonItem key="leftBarButtonItem" image="close.png" id="fF6-o4-blF">
                                 <connections>
                                     <action selector="BackAction:" destination="-1" id="znD-7q-wy4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="refresh" id="fAj-Ui-OXY">
+                            <barButtonItem key="rightBarButtonItem" title="Item" id="fAj-Ui-OXY">
                                 <connections>
                                     <action selector="refreshPage:" destination="-1" id="Ao6-58-bDr"/>
                                 </connections>
@@ -47,4 +47,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="close.png" width="32" height="32"/>
+    </resources>
 </document>

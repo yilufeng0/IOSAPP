@@ -18,11 +18,12 @@
     NSMutableArray* newsData;
     EGORefreshTableHeaderView* _refreshHeaderView;
     BOOL _reloading;
+    int maxId;
     
 }
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray* newsData;
 @property (strong,nonatomic,retain) NSMutableDictionary* muuserInfo;
-
 
 -(void)reloadTableViewDataSource;
 -(void)doneLoadingTableViewData;

@@ -9,6 +9,9 @@
 #import "CPSafeAppDelegate.h"
 #import "UMessage.h"
 #import "CPSafeWebViewViewController.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+
+#define kReachabilityChangedNotification @"kNetworkReachabilityChangedNotification"
 
 @interface CPSafeAppDelegate()
 @property (strong,nonatomic,retain) NSMutableDictionary* muuserInfo;
@@ -16,6 +19,7 @@
 
 @implementation CPSafeAppDelegate
 
+@synthesize deviceTokenStr=_deviceTokenStr;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -44,6 +48,8 @@
     
    // NSLog(@"lauchOptions:%@",launchOptions);
 //    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    
         return YES;
 }
 
@@ -59,7 +65,12 @@
     _deviceTokenReg = [NSString stringWithFormat:@"%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                   stringByReplacingOccurrencesOfString: @">" withString: @""]
                  stringByReplacingOccurrencesOfString: @" " withString: @""]];
-    NSLog(@"%@",_deviceTokenReg);
+    _deviceTokenStr = [NSString stringWithFormat:@"%@",[deviceToken description]];
+   
+    _deviceTokenStr = [_deviceTokenStr substringFromIndex:[_deviceTokenStr rangeOfString:@"<"].location+1];
+    _deviceTokenStr = [_deviceTokenStr substringToIndex:[_deviceTokenStr rangeOfString:@">"].location];
+    _deviceTokenStr = [_deviceTokenStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+
 }
 
 //接收到远程通知

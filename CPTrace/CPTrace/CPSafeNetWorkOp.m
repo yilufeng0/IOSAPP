@@ -16,7 +16,6 @@
 @interface  CPSafeNetWorkOp()
 
 
-
 @end
 
 
@@ -72,6 +71,14 @@
 }
 
 
+
+#pragma 获取网络状态
++(Boolean) getNetworkStatus{
+    Boolean result = false;
+  
+    
+    return result;
+}
 
 
 @end

@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CPSafeFeedback">
             <connections>
-                <outlet property="tfFeedback" destination="6jB-Vp-7an" id="ZGv-SO-re6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,16 +19,8 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <navigationItem title="feedback" id="RJL-tQ-67m">
-                            <barButtonItem key="leftBarButtonItem" title="giveup" id="jdv-xs-mEB">
-                                <connections>
-                                    <action selector="closeFeedback:" destination="-1" id="Gci-Zh-dNj"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Done" id="ldN-Hz-HRt">
-                                <connections>
-                                    <action selector="submitFeedback:" destination="-1" id="3ci-7I-wSz"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem key="leftBarButtonItem" title="giveup" id="jdv-xs-mEB"/>
+                            <barButtonItem key="rightBarButtonItem" title="Done" id="ldN-Hz-HRt"/>
                         </navigationItem>
                     </items>
                 </navigationBar>

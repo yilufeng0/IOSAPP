@@ -12,4 +12,6 @@
 @interface CPSafeNetWorkOp : NSObject
 -(void)uploadInfo:(NSDictionary*)parameters withURL:(NSString*)targetUrl;
 -(void)getNewsItem:(NSDictionary*)parameters;
+
++(Boolean) getNetworkStatus;
 @end

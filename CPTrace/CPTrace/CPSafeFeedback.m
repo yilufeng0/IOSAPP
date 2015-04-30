@@ -11,7 +11,7 @@
 #import "CPSafeAppDelegate.h"
 
 
-#define webInterface @"http://10.108.158.5:8080/cpServerPro/interface.jsp"
+#define webInterface @"http://103.244.82.219:8080/cpServerPro/interface.jsp"
 
 
 @interface CPSafeFeedback ()
@@ -101,16 +101,31 @@
     
     NSMutableDictionary* parameter = [NSMutableDictionary new];
     [parameter setValue:@"feedback" forKey:@"requestType"];
-    [parameter setValue:self.tfFeedback.text forKey:@"content_str"];
-    NSString* deviceToken = [[CPSafeAppDelegate alloc] init].deviceTokenReg;
-    [parameter setValue:deviceToken forKey:@"uuid"];
+    NSString* tmpmessage = self.tfFeedback.text;
+//    使用urlencode进行中文编码，后台进行urldecoder解码
+    NSString*  message = [tmpmessage stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [parameter setValue:message forKey:@"content_str"];
+    if ([self.tfFeedback.text  isEqual:@""]) {
+        return;
+    }
+    
+    NSString* deviceToken = [(CPSafeAppDelegate*)[[UIApplication sharedApplication] delegate] deviceTokenStr];
+    [parameter setValue:deviceToken forKey:@"uuId"];
+    NSLog(@"%@",parameter);
+    
+  
+
+    
     
     AFHTTPRequestOperationManager* manager=[AFHTTPRequestOperationManager manager];
-    [manager POST:webInterface parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:webInterface parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self popViewAlter:@"提交成功!"];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self popViewAlter:@"提交失败!"];
+        
     }];
     
 }

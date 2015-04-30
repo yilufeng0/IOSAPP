@@ -15,6 +15,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSString* deviceTokenReg;
+@property (readonly, strong, nonatomic) NSString* deviceTokenStr;
+//@property (readonly, nonatomic) BOOL  networkState;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

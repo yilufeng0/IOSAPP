@@ -136,7 +136,7 @@
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     // NSLog(@"tag :%i",tag);
-    NSLog(@"userLocation: %@", userLocation.location);
+    //NSLog(@"userLocation: %@", userLocation.location);
     self.currentLocation = [userLocation.location copy];
  
     if(tag == 0 && tag_2)

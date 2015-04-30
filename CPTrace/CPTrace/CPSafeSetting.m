@@ -44,14 +44,14 @@
     CPSafeAboutus* aboutus= [CPSafeAboutus new];
     [self presentViewController:aboutus animated:YES completion:nil];
 }
-- (IBAction)feedback:(id)sender {
-   // CPSafeFeedback* feedback = [CPSafeFeedback new];
-   // [self presentViewController:feedback animated:YES completion:nil];
-    //CPSafeFeedback* feedback = [self.storyboard instantiateViewControllerWithIdentifier:@"123"];
-   // [self presentViewController:feedback animated:YES completion:nil];
-    CPSafeFeedback* feedback = [[CPSafeFeedback alloc]initWithNibName:@"CPSafeFeedback" bundle:nil];
-    [self presentViewController:feedback animated:YES completion:nil];
-}
+//- (IBAction)feedback:(id)sender {
+//   // CPSafeFeedback* feedback = [CPSafeFeedback new];
+//   // [self presentViewController:feedback animated:YES completion:nil];
+//    //CPSafeFeedback* feedback = [self.storyboard instantiateViewControllerWithIdentifier:@"123"];
+//   // [self presentViewController:feedback animated:YES completion:nil];
+//    CPSafeFeedback* feedback = [[CPSafeFeedback alloc]initWithNibName:@"CPSafeFeedback" bundle:nil];
+//    [self presentViewController:feedback animated:YES completion:nil];
+//}
 
 /*
 #pragma mark - Navigation
