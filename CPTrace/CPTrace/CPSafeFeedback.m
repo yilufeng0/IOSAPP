@@ -15,6 +15,9 @@
 
 
 @interface CPSafeFeedback ()
+{
+    Boolean networkFlag;
+}
 @property (weak, nonatomic) IBOutlet UITextField *tfFeedback;
 
 @end
@@ -35,8 +38,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    networkFlag = false;
+    
     //在此注册消息
     [self registeNotification];
+    
     
 }
 
@@ -84,8 +90,8 @@
 
 #pragma after submit
 -(void)popViewAlter:(NSString*)message{
-    UIAlertView *alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerAction:) userInfo:alertView repeats:NO];
+    UIAlertView *alertView =[[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerAction:) userInfo:alertView repeats:NO];
     [alertView show];
 }
 
@@ -99,6 +105,10 @@
 //提交反馈(Done)
 -(IBAction)submitFeedback:(id)sender{
     
+    if (networkFlag) {
+        return;
+    }
+    networkFlag =true;
     NSMutableDictionary* parameter = [NSMutableDictionary new];
     [parameter setValue:@"feedback" forKey:@"requestType"];
     NSString* tmpmessage = self.tfFeedback.text;
@@ -121,9 +131,11 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
     [manager GET:webInterface parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        networkFlag = false;
         [self popViewAlter:@"提交成功!"];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        networkFlag = false;
         [self popViewAlter:@"提交失败!"];
         
     }];
