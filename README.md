@@ -6,9 +6,9 @@ This repo is out IOSAPP respo. This is our first IOS APP
 >
 >* Use QRcode framwork to get the information.
 >>  whether the network is avaible,we also need to display the result correct
->
+>>
 >>>a. when the network is avaible just post the url to server and display results in webkit browser.
->
+>>>
 >>>b. when the network is not well,just decode the local information and display it.
 >
 >* Find the shops in the map.(This function we use AMAP SDK).
