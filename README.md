@@ -2,17 +2,17 @@
 This repo is out IOSAPP respo. This is our first IOS APP
 
 ##Function##
->1. Fetch news from server
+>* Fetch news from server
 >
->2. Use QRcode framwork to get the information.
+>* Use QRcode framwork to get the information.
 >>  whether the network is avaible,we also need to display the result correct
 >
->>a. when the network is avaible just post the url to server and display results in webkit browser.
+>>>a. when the network is avaible just post the url to server and display results in webkit browser.
 >
->>b. when the network is not well,just decode the local information and display it.
+>>>b. when the network is not well,just decode the local information and display it.
 >
->3. Find the shops in the map.(This function we use AMAP SDK).
->4. Post users suggest to the server.(The feedback function we get the deviceToken by Umeng SDK,then we can response users use push function).
+>* Find the shops in the map.(This function we use AMAP SDK).
+>* Post users suggest to the server.(The feedback function we get the deviceToken by Umeng SDK,then we can response users use push function).
 
 ##Friendship Links##
 [<img src="http://img.kanzhun.com/images/logo/20140820/7c1bec4249ca676197cba542436d8cc5.jpg" height=150 width=150 alt="http://lbs.amap.com/"/>](http://lbs.amap.com/ "http://lbs.amap.com/")
